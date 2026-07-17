@@ -56,9 +56,12 @@ Follow these steps to replicate the environment and view the reports.
 
 ### 3. Deploying Apache Superset
 The visualization layer runs in a containerized environment.
-1. clone this repo --- git clone https://github.com/alfadaniel283/Amingo-superstore-analysis.git ---
+1. clone this repo
+    ```bash
+      git clone https://github.com/alfadaniel283/Amingo-superstore-analysis.git
+   ```
 2. Navigate to the Amingo-superstore-analysis directory.
-4. Setup secret keys in the docker-compose file and config/superset_config.py.
+4. Setup secret keys in the `docker-compose` file and `config/superset_config.py`.
 5. Build and start the containers:
    ```bash
    docker-compose up -d --build
@@ -79,7 +82,7 @@ The visualization layer runs in a containerized environment.
 - **Importing Dashboards:**
   - Go to Dashboards.
   - Click the Import Dashboard (arrow icon) in the top right.
-  - Upload the provided `Superstore_Dashboard_Export.zip` file.
+  - Upload the provided `AmingoStore.zip` file.
   - This will automatically import all charts, datasets, and layout configurations.
 
 ## 📂 File Structure
@@ -94,7 +97,7 @@ The visualization layer runs in a containerized environment.
 ├── backup/
 │   └── AmingoStore.bak          # MS SQL Server Database Backup
 ├── dashboard/
-│   └── Superstore_Dashboard_Export.zip          # import to superset
+│   └── AmingoStore.zip          # import to superset
 ├── scripts/
 │   ├── data_load.py             # Python ETL script
 │   └── warehouse_logic.sql      # SQL Star Schema & Views
