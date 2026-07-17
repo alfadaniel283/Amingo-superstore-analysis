@@ -1,10 +1,6 @@
-This is a comprehensive update to your **README.md**. It is now tailored for **Apache Superset**, including a technical deployment guide for the Docker container and instructions on how to import the provided database backups and dashboard assets.
-
----
-
 # 📊 Superstore Strategic BI: Industrial Performance Analysis
 
-This project is a high-level **Business Intelligence (BI) Lifecycle** implementation using the Global Superstore dataset. It moves beyond basic charts into advanced diagnostic analytics, including RFM segmentation, basket analysis, and supply chain optimization.
+This project is a high-level **Business Intelligence (BI) Lifecycle** implementation using the Amingo Superstore dataset. It moves beyond basic charts into advanced diagnostic analytics, including RFM segmentation, basket analysis, and supply chain optimization.
 
 ## 🚀 Project Overview
 The goal of this analysis is to identify "Value Leakage" and growth opportunities for the Superstore. By normalizing the data into a **Star Schema** and deploying **Apache Superset** as the visualization layer, we provide stakeholders with a scalable, interactive platform for data-driven decision-making.
@@ -13,7 +9,7 @@ The goal of this analysis is to identify "Value Leakage" and growth opportunitie
 
 ## 📈 The Analysis (Business Insights)
 
-The project delivers 10 industrial-standard analyses, implemented via **SQL Views** and visualized in Superset:
+The project deliversindustrial-standard analyses, implemented via **SQL Views** and visualized in Superset:
 
 ### 1. Executive Performance
 *   **Executive Sales Overview:** YoY Growth tracks and high-level health checks.
@@ -22,7 +18,6 @@ The project delivers 10 industrial-standard analyses, implemented via **SQL View
 
 ### 2. Customer Intelligence
 *   **RFM Segmentation:** Grouping customers into "Champions," "Loyal," and "At-Risk" based on Recency, Frequency, and Monetary scores.
-*   **Customer Lifetime Value (CLV):** Predicting long-term worth by segment (Consumer vs. Corporate).
 
 ### 3. Strategy & Operations
 *   **Discount Impact Study:** Statistical correlation between discount levels and net profit.
