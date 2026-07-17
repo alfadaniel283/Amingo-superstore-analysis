@@ -37,7 +37,11 @@ Live Superset dashboard output — KPI summary plus the charts backing each anal
 ![KPI summary](./image/amingo-store-analysis-overview-KPI.jpg)
 
 <details>
-<summary><b>Executive performance</b> — sales trend, YoY growth, profit margin</summary>
+<summary><b>Executive performance</b> — sales trend, YoY growth, profit margin
+<span>
+Purpose: Answers the most fundamental question in retail analytics — is the business growing or shrinking? Compares total sales and profit year-on-year using LAG() to calculate growth percentage.
+Key Metrics: Total Sales, Total Profit, Previous Year Sales, YoY Growth %</span>
+</summary>
 
 ![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg)
 
