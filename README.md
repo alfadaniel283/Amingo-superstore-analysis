@@ -1,103 +1,153 @@
 # 📊 Superstore Strategic BI: Industrial Performance Analysis
 
-This project is a high-level **Business Intelligence (BI) Lifecycle** implementation using the Amingo Superstore dataset. It moves beyond basic charts into advanced diagnostic analytics, including RFM segmentation, basket analysis, and supply chain optimization.
+This project is a high-level Business Intelligence (BI) Lifecycle implementation using the Amingo Superstore dataset. It moves beyond basic charts into advanced diagnostic analytics, including RFM segmentation, basket analysis, and supply chain optimization.
+
+> 📄 Full write-up (methodology, star schema, all 10 SQL analyses, and findings): [`Amingo_Superstore_BI_Project_Report.docx`](./doc/Amingo_Superstore_BI_Project_Report.docx)
 
 ## 🚀 Project Overview
-The goal of this analysis is to identify "Value Leakage" and growth opportunities for the Superstore. By normalizing the data into a **Star Schema** and deploying **Apache Superset** as the visualization layer, we provide stakeholders with a scalable, interactive platform for data-driven decision-making.
 
----
+The goal of this analysis is to identify "Value Leakage" and growth opportunities for the Superstore. By normalizing the data into a Star Schema and deploying Apache Superset as the visualization layer, we provide stakeholders with a scalable, interactive platform for data-driven decision-making.
 
 ## 📈 The Analysis (Business Insights)
 
-The project deliversindustrial-standard analyses, implemented via **SQL Views** and visualized in Superset:
+The project delivers industrial-standard analyses, implemented via SQL Views and visualized in Superset:
 
-### 1. Executive Performance
-*   **Executive Sales Overview:** YoY Growth tracks and high-level health checks.
-*   **Profit Margin Analysis:** Identification of loss-leading products and "Value Leakage."
-*   **Regional Heatmaps:** Geographic identification of inefficient operations.
+**1. Executive Performance**
+- Executive Sales Overview: YoY Growth tracks and high-level health checks.
+- Profit Margin Analysis: Identification of loss-leading products and "Value Leakage."
+- Regional Heatmaps: Geographic identification of inefficient operations.
 
-### 2. Customer Intelligence
-*   **RFM Segmentation:** Grouping customers into "Champions," "Loyal," and "At-Risk" based on Recency, Frequency, and Monetary scores.
+**2. Customer Intelligence**
+- RFM Segmentation: Grouping customers into "Champions," "Loyal," and "At-Risk" based on Recency, Frequency, and Monetary scores.
 
-### 3. Strategy & Operations
-*   **Discount Impact Study:** Statistical correlation between discount levels and net profit.
-*   **Shipping & Logistics:** Fulfillment gap analysis against a 4-day industrial standard.
-*   **Market Basket Analysis:** Identifying product co-occurrence to drive cross-selling and bundling.
-*   **Pareto (80/20) Analysis:** Finding the 20% of products driving 80% of total revenue.
+**3. Strategy & Operations**
+- Discount Impact Study: Statistical correlation between discount levels and net profit.
+- Shipping & Logistics: Fulfillment gap analysis against a 4-day industrial standard.
+- Market Basket Analysis: Identifying product co-occurrence to drive cross-selling and bundling.
+- Pareto (80/20) Analysis: Finding the 20% of products driving 80% of total revenue.
+
+---
+
+## 🖼️ Reports & Dashboard
+
+Live Superset dashboard output — KPI summary plus the charts backing each analysis above.
+
+**KPI summary**
+
+![KPI summary](./image/amingo-store-analysis-overview-KPI.jpg)
+
+<details>
+<summary><b>Executive performance</b> — sales trend, YoY growth, profit margin</summary>
+
+![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg
+)
+
+</details>
+
+<details>
+<summary><b>Customer intelligence</b> — RFM segmentation</summary>
+
+![RFM score by segment](./image/amingo-store-analysis-customer-analytics.jpg)
+
+</details>
+
+<details>
+<summary><b>Discount impact</b></summary>
+
+![Discount average & discounted vs normal sales](./image/amingo-store-analysis-discount-analysis.jpg
+)
+
+</details>
+
+<details>
+<summary><b>Shipping, logistics & regional</b></summary>
+
+![Ship cost by region](./image/amingo-store-analysis-logistic.jpg
+)
+
+</details>
+
 
 ---
 
 ## 🛠 Tech Stack
-*   **Database:** MS SQL Server (Primary Data Warehouse)
-*   **ETL:** Python (Pandas & SQLAlchemy)
-*   **BI Platform:** Apache Superset (Deployed via Docker)
-*   **Infrastructure:** Docker Compose (PostgreSQL for metadata, Redis for caching, Celery for async tasks)
 
----
+- **Database:** MS SQL Server (Primary Data Warehouse)
+- **ETL:** Python (Pandas & SQLAlchemy)
+- **BI Platform:** Apache Superset (Deployed via Docker)
+- **Infrastructure:** Docker Compose (PostgreSQL for metadata, Redis for caching, Celery for async tasks)
 
 ## ⚙️ Setup & Installation Guide
 
 Follow these steps to replicate the environment and view the reports.
 
 ### 1. Prerequisites
-*   Docker & Docker Compose installed.
-*   MS SQL Server (local or remote) to host the source data.
-*   The `SuperStoreOrder_Backup.bak` file (included in the `backup/` folder).
+- Docker & Docker Compose installed.
+- MS SQL Server (local or remote) to host the source data.
+- The `SuperStoreOrder_Backup.bak` file (included in the `backup/` folder).
 
 ### 2. Database Restoration (Data Warehouse)
-1.  Open **SQL Server Management Studio (SSMS)**.
-2.  Right-click "Databases" -> **Restore Database**.
-3.  Select the provided `.bak` file to restore the `AmingoStore` database.
-4.  Run the `sqlscript.txt` provided in this repository to generate the **Star Schema** and the **10 Business Views**.
+1. Open SQL Server Management Studio (SSMS).
+2. Right-click "Databases" → Restore Database.
+3. Select the provided `.bak` file to restore the `AmingoStore` database.
+4. Run the `sqlscript.txt` provided in this repository to generate the Star Schema and the 10 Business Views.
 
 ### 3. Deploying Apache Superset
 The visualization layer runs in a containerized environment.
-
-1.  Navigate to the project root directory.
-2.  Build and start the containers:
-    ```bash
-    docker-compose up -d --build
-    ```
-3.  The `superset-init.sh` script will automatically:
-    *   Create an admin user (`admin`/`admin`).
-    *   Initialize the metadata database.
-    *   Set up roles and permissions.
-4.  Access the UI at: `http://localhost:8088`
+1. Navigate to the project root directory.
+2. Build and start the containers:
+   ```bash
+   docker-compose up -d --build
+   ```
+3. The `superset-init.sh` script will automatically:
+   - Create an admin user (`admin`/`admin`).
+   - Initialize the metadata database.
+   - Set up roles and permissions.
+4. Access the UI at: **http://localhost:8088**
 
 ### 4. Connecting Data & Importing Reports
-1.  **Database Connection:** 
-    *   Inside Superset, go to **Settings -> Database Connections**.
-    *   Add a new MS SQL Server connection using the URI format:
-        `mssql+pyodbc://<user>:<password>@<host_ip>:1433/AmingoStore?driver=ODBC+Driver+17+for+SQL+Server`
-2.  **Importing Dashboards:**
-    *   Go to **Dashboards**.
-    *   Click the **Import Dashboard** (Arrow icon) in the top right.
-    *   Upload the provided `Superstore_Dashboard_Export.zip` file.
-    *   This will automatically import all charts, datasets, and layout configurations.
-
----
+- **Database Connection:**
+  - Inside Superset, go to Settings → Database Connections.
+  - Add a new MS SQL Server connection using the URI format:
+    ```
+    mssql+pyodbc://<user>:<password>@<host_ip>:1433/AmingoStore?driver=ODBC+Driver+17+for+SQL+Server
+    ```
+- **Importing Dashboards:**
+  - Go to Dashboards.
+  - Click the Import Dashboard (arrow icon) in the top right.
+  - Upload the provided `Superstore_Dashboard_Export.zip` file.
+  - This will automatically import all charts, datasets, and layout configurations.
 
 ## 📂 File Structure
-```text
+
+```
 ├── superset/
-    ├── docker-compose.yml       # Orchestration for Superset, Postgres, Redis
-    ├── Dockerfile        # Custom Superset build with SQL drivers
-    ├── config/
-│       ├── superset_config.py   # Advanced Superset & Redis configuration
-│       └── superset-init.sh     # Automation script for first-time setup
+│   ├── docker-compose.yml       # Orchestration for Superset, Postgres, Redis
+│   ├── Dockerfile               # Custom Superset build with SQL drivers
+│   ├── config/
+│   │   ├── superset_config.py   # Advanced Superset & Redis configuration
+│   │   └── superset-init.sh     # Automation script for first-time setup
 ├── backup/
-│   └── AmingoStore.bak      # MS SQL Server Database Backup
+│   └── AmingoStore.bak          # MS SQL Server Database Backup
 ├── scripts/
-│   ├── data_load.py         # Python ETL script
-│   └── warehouse_logic.sql  # SQL Star Schema & Views               
+│   ├── data_load.py             # Python ETL script
+│   └── warehouse_logic.sql      # SQL Star Schema & Views
+├── screenshots/                 # Dashboard chart exports (used above)
+├── Amingo_Superstore_BI_Project_Report.docx   # Full report
+└── README.md
 ```
 
----
-
 ## 💡 Key Findings & Recommendations
-*   **Operational:** Reduce "Standard Class" shipping in the East Region; fulfillment is lagging by 1.8 days vs. benchmark.
-*   **Marketing:** Target the "At-Risk" RFM segment with a 10% discount on "Technology" products (high-margin category).
-*   **Financial:** Cap discounts at 20%. Data shows that discounts >30% in the "Furniture" category result in a 95% probability of negative profit.
+
+- **Operational:** Reduce "Standard Class" shipping in the East Region; fulfillment is lagging by 1.8 days vs. benchmark.
+- **Marketing:** Target the "At-Risk" RFM segment with a 10% discount on "Technology" products (high-margin category).
+- **Financial:** Cap discounts at 20%. Data shows that discounts >30% in the "Furniture" category result in a 95% probability of negative profit.
+
+## 🐞 Known Issues
+
+- **Basket Analysis** — SQL view is built and validated, but no Superset chart exists for it yet. Planned: a top-10 product-pair bar chart.
+- **Returns Analysis** — the customer/returns detail table currently times out in Superset (60s query cap). Planned fix: pre-aggregate into a SQL view instead of querying `Fact_Sales` live.
 
 ---
+
 *Developed as a Strategic BI Capstone Project.*
