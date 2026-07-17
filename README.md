@@ -73,7 +73,7 @@ The visualization layer runs in a containerized environment.
   - Inside Superset, go to Settings → Database Connections.
   - Add a new MS SQL Server connection using the URI format:
     ```
-    mssql+pyodbc://<user>:<password>@<host_ip>:1433/AmingoStore?driver=ODBC+Driver+17+for+SQL+Server
+    mssql+pymssql://<user>:<password>@<host_ip>:1433/AmingoStore
     ```
 - **Importing Dashboards:**
   - Go to Dashboards.
