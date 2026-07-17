@@ -47,27 +47,27 @@ Follow these steps to replicate the environment and view the reports.
 ### 1. Prerequisites
 - Docker & Docker Compose installed.
 - MS SQL Server (local or remote) to host the source data.
-- The `SuperStoreOrder_Backup.bak` file (included in the `backup/` folder).
+- The `AmingoStore.bak` file (included in the `backup/` folder).
 
 ### 2. Database Restoration (Data Warehouse)
 1. Open SQL Server Management Studio (SSMS).
 2. Right-click "Databases" → Restore Database.
 3. Select the provided `.bak` file to restore the `AmingoStore` database.
-4. Run the `sqlscript.txt` provided in this repository to generate the Star Schema and the 10 Business Views.
 
 ### 3. Deploying Apache Superset
 The visualization layer runs in a containerized environment.
 1. Navigate to the project root directory.
-2. Setup secret keys in the docker-compose file and config/superset_config.py.
-4. Build and start the containers:
+2. clone this repo --- git clone 
+4. Setup secret keys in the docker-compose file and config/superset_config.py.
+5. Build and start the containers:
    ```bash
    docker-compose up -d --build
    ```
-5. The `superset-init.sh` script will automatically:
+6. The `superset-init.sh` script will automatically:
    - Create an admin user (`admin`/`admin`).
    - Initialize the metadata database.
    - Set up roles and permissions.
-6. Access the UI at: **http://localhost:8088**
+7. Access the UI at: **http://localhost:8088**
 
 ### 4. Connecting Data & Importing Reports
 - **Database Connection:**
