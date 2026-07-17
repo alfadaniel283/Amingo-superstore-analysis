@@ -1,0 +1,52 @@
+
+services:
+
+  db:
+    image: postgres:15
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: superset
+      POSTGRES_PASSWORD: superset #Replace with your own password
+      POSTGRES_DB: superset
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+
+  superset:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    environment:
+      SUPERSET_SECRET_KEY: "NT9f2osNldMdT71NMZGPVkp20Z64L1gkMDE6VhWn21Q4nv53wpx69yL+"  #Replace secret key with yours
+      DATABASE_URL: "postgresql+psycopg2://superset:superset@db:5432/superset"
+      PYTHONPATH: /app/pythonpath
+    ports:
+      - "8088:8088"
+    volumes:
+      - ./config/superset_config.py:/app/pythonpath/superset_config.py
+    command: >
+      bash -c "/app/superset-init.sh && superset run -h 0.0.0.0 -p 8088 --with-threads"
+
+  superset-worker:  
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+      - redis
+    environment:
+      SUPERSET_SECRET_KEY: "NT9f2osNldMdT71NMZGPVkp20Z64L1gkMDE6VhWn21Q4nv53wpx69yL+" #create your own secret key
+      DATABASE_URL: "postgresql+psycopg2://superset:superset@db:5432/superset"
+    command: celery --app=superset.tasks.celery_app:app worker --pool=prefork -O fair -c 4
+
+volumes:
+  postgres_data:
+
