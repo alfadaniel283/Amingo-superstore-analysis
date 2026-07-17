@@ -18,10 +18,13 @@ The project delivers industrial-standard analyses, implemented via SQL Views and
 - Regional Heatmaps: Geographic identification of inefficient operations.
 ![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg)
 
+
+
 **2. Customer Intelligence**
 - RFM Segmentation: Grouping customers into "Champions," "Loyal," and "At-Risk" based on Recency, Frequency, and Monetary scores.
 - 
 ![RFM score by segment](./image/amingo-store-analysis-customer-analytics.jpg)
+
 
 **3. Strategy & Operations**
 - Discount Impact Study: Statistical correlation between discount levels and net profit.
@@ -32,13 +35,20 @@ The project delivers industrial-standard analyses, implemented via SQL Views and
 ![Ship cost by region](./image/amingo-store-analysis-logistic.jpg)
 
 ---
-
 ## 🛠 Tech Stack
 
 - **Database:** MS SQL Server (Primary Data Warehouse)
 - **ETL:** Python (Pandas & SQLAlchemy)
 - **BI Platform:** Apache Superset (Deployed via Docker)
 - **Infrastructure:** Docker Compose (PostgreSQL for metadata, Redis for caching, Celery for async tasks)
+---
+
+## 💡 Key Findings & Recommendations
+
+- **Operational:** Reduce "Standard Class" shipping in the East Region; fulfillment is lagging by 1.8 days vs. benchmark.
+- **Marketing:** Target the "At-Risk" RFM segment with a 10% discount on "Technology" products (high-margin category).
+- **Financial:** Cap discounts at 20%. Data shows that discounts >30% in the "Furniture" category result in a 95% probability of negative profit.
+---
 
 ## ⚙️ Setup & Installation Guide
 
@@ -105,12 +115,5 @@ The visualization layer runs in a containerized environment.
 ├── Amingo_Superstore_BI_Project_Report.docx   # Full report
 └── README.md
 ```
-
-## 💡 Key Findings & Recommendations
-
-- **Operational:** Reduce "Standard Class" shipping in the East Region; fulfillment is lagging by 1.8 days vs. benchmark.
-- **Marketing:** Target the "At-Risk" RFM segment with a 10% discount on "Technology" products (high-margin category).
-- **Financial:** Cap discounts at 20%. Data shows that discounts >30% in the "Furniture" category result in a 95% probability of negative profit.
----
 
 *Developed as a Strategic BI Capstone Project.*
