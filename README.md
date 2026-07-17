@@ -58,15 +58,16 @@ Follow these steps to replicate the environment and view the reports.
 ### 3. Deploying Apache Superset
 The visualization layer runs in a containerized environment.
 1. Navigate to the project root directory.
-2. Build and start the containers:
+2. Setup secret keys in the docker-compose file and config/superset_config.py.
+4. Build and start the containers:
    ```bash
    docker-compose up -d --build
    ```
-3. The `superset-init.sh` script will automatically:
+5. The `superset-init.sh` script will automatically:
    - Create an admin user (`admin`/`admin`).
    - Initialize the metadata database.
    - Set up roles and permissions.
-4. Access the UI at: **http://localhost:8088**
+6. Access the UI at: **http://localhost:8088**
 
 ### 4. Connecting Data & Importing Reports
 - **Database Connection:**
