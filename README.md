@@ -79,16 +79,17 @@ The visualization layer runs in a containerized environment.
 
 ## 📂 File Structure
 ```text
-├── config/
-│   ├── superset_config.py   # Advanced Superset & Redis configuration
-│   └── superset-init.sh     # Automation script for first-time setup
+├── superset/
+    ├── docker-compose.yml       # Orchestration for Superset, Postgres, Redis
+    ├── Dockerfile        # Custom Superset build with SQL drivers
+    ├── config/
+│       ├── superset_config.py   # Advanced Superset & Redis configuration
+│       └── superset-init.sh     # Automation script for first-time setup
 ├── backup/
 │   └── AmingoStore.bak      # MS SQL Server Database Backup
 ├── scripts/
 │   ├── data_load.py         # Python ETL script
-│   └── warehouse_logic.sql  # SQL Star Schema & Views
-├── docker-compose.yml       # Orchestration for Superset, Postgres, Redis
-└── Dockerfile               # Custom Superset build with SQL drivers
+│   └── warehouse_logic.sql  # SQL Star Schema & Views               
 ```
 
 ---
