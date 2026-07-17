@@ -39,8 +39,7 @@ Live Superset dashboard output — KPI summary plus the charts backing each anal
 <details>
 <summary><b>Executive performance</b> — sales trend, YoY growth, profit margin</summary>
 
-![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg
-)
+![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg)
 
 </details>
 
