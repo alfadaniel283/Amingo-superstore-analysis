@@ -56,8 +56,8 @@ Follow these steps to replicate the environment and view the reports.
 
 ### 3. Deploying Apache Superset
 The visualization layer runs in a containerized environment.
-1. Navigate to the project root directory.
-2. clone this repo --- git clone 
+1. clone this repo --- git clone https://github.com/alfadaniel283/Amingo-superstore-analysis.git ---
+2. Navigate to the Amingo-superstore-analysis directory.
 4. Setup secret keys in the docker-compose file and config/superset_config.py.
 5. Build and start the containers:
    ```bash
