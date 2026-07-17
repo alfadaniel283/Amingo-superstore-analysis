@@ -16,60 +16,20 @@ The project delivers industrial-standard analyses, implemented via SQL Views and
 - Executive Sales Overview: YoY Growth tracks and high-level health checks.
 - Profit Margin Analysis: Identification of loss-leading products and "Value Leakage."
 - Regional Heatmaps: Geographic identification of inefficient operations.
+![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg)
 
 **2. Customer Intelligence**
 - RFM Segmentation: Grouping customers into "Champions," "Loyal," and "At-Risk" based on Recency, Frequency, and Monetary scores.
+- 
+![RFM score by segment](./image/amingo-store-analysis-customer-analytics.jpg)
 
 **3. Strategy & Operations**
 - Discount Impact Study: Statistical correlation between discount levels and net profit.
 - Shipping & Logistics: Fulfillment gap analysis against a 4-day industrial standard.
 - Market Basket Analysis: Identifying product co-occurrence to drive cross-selling and bundling.
 - Pareto (80/20) Analysis: Finding the 20% of products driving 80% of total revenue.
-
----
-
-## 🖼️ Reports & Dashboard
-
-Live Superset dashboard output — KPI summary plus the charts backing each analysis above.
-
-**KPI summary**
-
-![KPI summary](./image/amingo-store-analysis-overview-KPI.jpg)
-
-<details>
-<summary><b>Executive performance</b> — sales trend, YoY growth, profit margin
-<span>
-Purpose: Answers the most fundamental question in retail analytics — is the business growing or shrinking? Compares total sales and profit year-on-year using LAG() to calculate growth percentage.
-Key Metrics: Total Sales, Total Profit, Previous Year Sales, YoY Growth %</span>
-</summary>
-
-![Sale & Profit trend](./image/amingo-store-analysis-sale-overview.jpg)
-
-</details>
-
-<details>
-<summary><b>Customer intelligence</b> — RFM segmentation</summary>
-
-![RFM score by segment](./image/amingo-store-analysis-customer-analytics.jpg)
-
-</details>
-
-<details>
-<summary><b>Discount impact</b></summary>
-
-![Discount average & discounted vs normal sales](./image/amingo-store-analysis-discount-analysis.jpg
-)
-
-</details>
-
-<details>
-<summary><b>Shipping, logistics & regional</b></summary>
-
-![Ship cost by region](./image/amingo-store-analysis-logistic.jpg
-)
-
-</details>
-
+![Discount average & discounted vs normal sales](./image/amingo-store-analysis-discount-analysis.jpg)
+![Ship cost by region](./image/amingo-store-analysis-logistic.jpg)
 
 ---
 
