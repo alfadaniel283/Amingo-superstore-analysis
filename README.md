@@ -92,6 +92,8 @@ The visualization layer runs in a containerized environment.
 │   │   └── superset-init.sh     # Automation script for first-time setup
 ├── backup/
 │   └── AmingoStore.bak          # MS SQL Server Database Backup
+├── dashboard/
+│   └── Superstore_Dashboard_Export.zip          # import to superset
 ├── scripts/
 │   ├── data_load.py             # Python ETL script
 │   └── warehouse_logic.sql      # SQL Star Schema & Views
