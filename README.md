@@ -108,12 +108,6 @@ The visualization layer runs in a containerized environment.
 - **Operational:** Reduce "Standard Class" shipping in the East Region; fulfillment is lagging by 1.8 days vs. benchmark.
 - **Marketing:** Target the "At-Risk" RFM segment with a 10% discount on "Technology" products (high-margin category).
 - **Financial:** Cap discounts at 20%. Data shows that discounts >30% in the "Furniture" category result in a 95% probability of negative profit.
-
-## 🐞 Known Issues
-
-- **Basket Analysis** — SQL view is built and validated, but no Superset chart exists for it yet. Planned: a top-10 product-pair bar chart.
-- **Returns Analysis** — the customer/returns detail table currently times out in Superset (60s query cap). Planned fix: pre-aggregate into a SQL view instead of querying `Fact_Sales` live.
-
 ---
 
 *Developed as a Strategic BI Capstone Project.*
